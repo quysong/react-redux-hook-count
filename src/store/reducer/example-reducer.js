@@ -5,7 +5,8 @@ import { createActions, createReducer } from 'reduxsauce';
  *  Ex.: Type.ADD e add = { type: Type.ADD, params }
  */
 export const { Types, Creators } = createActions({
-  add: ["title"]
+  add: ["title"],
+  show: ["show"],
 })
 
 const INITIAL_STATE = {
@@ -13,11 +14,16 @@ const INITIAL_STATE = {
     'React Native',
     'ReactJS',
     'NodeJS'
-  ]
+  ],
+  status: false
 }
 
 const add = (state = INITIAL_STATE, action) => {
   return { ...state, data: [ ...state.data, action.title ]}
+}
+
+const show = (state = INITIAL_STATE, action) => {
+  return { ...state, status: action.status}
 }
 
 /**
@@ -31,4 +37,5 @@ const add = (state = INITIAL_STATE, action) => {
 
 export default createReducer(INITIAL_STATE, {
   [Types.ADD]: add,
+  [Types.SHOW]: show,
 })
