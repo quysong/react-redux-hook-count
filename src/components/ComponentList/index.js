@@ -23,8 +23,8 @@ export default function ComponentList() {
 
   const showModal = (status) => {
     console.time()
-    // setOpen(status)
-    dispatch({ type: Types.SHOW, status})
+    setOpen(status)
+    // dispatch({ type: Types.SHOW, status})
     console.timeEnd()
 
   }
@@ -44,8 +44,8 @@ export default function ComponentList() {
         {list.map( item => <li key={item}>{item}</li>)}
       </ul>
       <button type="button" onClick={showModal}>showModal</button>
-      <BaseModal showModal={showModal} open={statusOpen}/>
-      {/* <BaseModal showModal={showModal} open={open}/> */}
+      {/* <BaseModal showModal={showModal} open={statusOpen}/> */}
+      <BaseModal showModal={showModal} open={open}/>
     </>
   );
 }
